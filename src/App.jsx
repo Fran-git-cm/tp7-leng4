@@ -1,7 +1,9 @@
 
 import { useState } from "react";
-import { BrowserRouter, Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import "./App.css";
+
+const Router = import.meta.env.MODE === "github-pages" ? HashRouter : BrowserRouter;
 
 // PAGINA DE INICIO
 function Inicio() {
@@ -171,7 +173,7 @@ function Informacion() {
 // APLICACION PRINCIPAL
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <header className="header">
         <h2>Mi Proyecto React</h2>
 
@@ -198,7 +200,7 @@ function App() {
         <p>Universidad Católica de Salta - 2026</p>
         <p>Ingeniería en Informática - Lenguaje IV</p>
       </footer>
-    </BrowserRouter>
+    </Router>
   );
 }
 
